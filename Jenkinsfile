@@ -3,37 +3,35 @@ pipeline{
 	agent any
 
 	environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+		DOCKERHUB_CREDENTIALS=credentials('docker')
 	}
 
 	stages {
-	
-		stage('Login to dockerhub') {
+
+
+		stage('Build') {
 
 			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				sh 'sudo docker build -t salehtaha/docker-final-task:latest .'
 			}
 		}
-		
-		stage('Build image') {
+        stage('Login') {
 
 			steps {
-				sh 'docker build -t salehtaha/docker-final-task .'
+				sh ' sudo echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
 		}
-
-
-		stage('Push to dockerhub') {
+		stage('Push') {
 
 			steps {
-				sh ' docker push salehtaha/docker-final-task'
+				sh 'sudo docker push salehtaha/docker-final-task:latest'
 			}
 		}
 	}
 
 	post {
 		always {
-			sh ' docker logout'
+			sh 'sudo docker logout'
 		}
 	}
 
