@@ -56,7 +56,7 @@ Stop App Run
 
 ## Web App Runing Example
 
-<img width="932" alt="image" src="the web bitcoin price.png">
+<img width="500" alt="image" src="the web bitcoin price.png">
 
 
 ## Jenkins Pipeline
@@ -64,8 +64,8 @@ Stop App Run
 Used Jenkins to build and publish the application to Docker Hub.
 Create a token from Docker to push the image to Docker Hub and set the token in the Jenkins credentials.
 
-<img width="932" alt="image" src="https://user-images.githubusercontent.com/73100170/179394003-2fcde036-3d7a-4aa6-b8e6-eac389908beb.png">
+<img width="500" alt="image" src="push_dockerhub.png">
 
-<img width="932" alt="image" src="https://user-images.githubusercontent.com/73100170/179398581-572c5543-e1b3-4100-a784-e87b9bd36e06.png">
+<img width="500" alt="image" src="jenkins_succeed.png">
 
 
